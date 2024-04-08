@@ -1,0 +1,157 @@
+<xsd:schema targetNamespace="http://hawaii1-ld2-z3/COA.Source.ws.provider:WebCATSDocumentStorageService"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://hawaii1-ld2-z3/COA.Source.ws.provider:WebCATSDocumentStorageService">
+
+    <xsd:element name="getTicketedUrlRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+                <xsd:element name="ticketLifeTime" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getTicketedUrlResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ticketedUrl" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="storeDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="base64Document" nillable="true" type="xsd:string"/>
+                <xsd:element name="filename" nillable="true" type="xsd:string"/>
+                <xsd:element name="applicationViewGrant" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="storeDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getTicketRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+                <xsd:element name="ticketLifeTime" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getTicketResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ticket" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getFileSizeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getFileSizeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="size" nillable="true" type="xsd:long"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getFileMimeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getFileMimeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="mime" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getDocumentUploadStateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+                <xsd:element name="timeout_x00A0_" nillable="true" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getDocumentUploadStateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="state" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="storeDocumentAsyncRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="filename" nillable="true" type="xsd:string"/>
+                <xsd:element name="applicationViewGrant" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="storeDocumentAsyncResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getPing">
+        <xsd:complexType >
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getPingResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="status" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getHealth">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getHealthResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="appid" nillable="true" type="xsd:string"/>
+                <xsd:element name="method" nillable="true" type="xsd:string"/>
+                <xsd:element name="status" nillable="true" type="xsd:string"/>
+                <xsd:element name="host" nillable="true" type="xsd:string"/>
+                <xsd:element name="instance" nillable="true" type="xsd:string"/>
+                <xsd:element name="version" nillable="true" type="xsd:string"/>
+                <xsd:element name="compatibility" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

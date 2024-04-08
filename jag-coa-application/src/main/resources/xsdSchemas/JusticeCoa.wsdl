@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WebCATSDocumentStorageService" targetNamespace="http://hawaii1-ld2-z3/COA.Source.ws.provider:WebCATSDocumentStorageService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapjms="http://www.w3.org/2008/07/soap/bindings/JMS/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://hawaii1-ld2-z3/COA.Source.ws.provider:WebCATSDocumentStorageService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://hawaii1-ld2-z3/COA.Source.ws.provider:WebCATSDocumentStorageService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://hawaii1-ld2-z3/COA.Source.ws.provider:WebCATSDocumentStorageService">
+            <xsd:complexType name="getTicketedUrlRequest">
+                <xsd:sequence>
+                    <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+                    <xsd:element name="ticketLifeTime" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getTicketedUrlResponse">
+                <xsd:sequence>
+                    <xsd:element name="ticketedUrl" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="storeDocumentRequest">
+                <xsd:sequence>
+                    <xsd:element name="base64Document" nillable="true" type="xsd:string"/>
+                    <xsd:element name="filename" nillable="true" type="xsd:string"/>
+                    <xsd:element name="applicationViewGrant" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="storeDocumentResponse">
+                <xsd:sequence>
+                    <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getTicketRequest">
+                <xsd:sequence>
+                    <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+                    <xsd:element name="ticketLifeTime" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getTicketResponse">
+                <xsd:sequence>
+                    <xsd:element name="ticket" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getFileSizeRequest">
+                <xsd:sequence>
+                    <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getFileSizeResponse">
+                <xsd:sequence>
+                    <xsd:element name="size" nillable="true" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getFileMimeRequest">
+                <xsd:sequence>
+                    <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getFileMimeResponse">
+                <xsd:sequence>
+                    <xsd:element name="mime" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getDocumentUploadStateRequest">
+                <xsd:sequence>
+                    <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+                    <xsd:element name="timeout_x00A0_" nillable="true" type="xsd:int"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getDocumentUploadStateResponse">
+                <xsd:sequence>
+                    <xsd:element name="state" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="storeDocumentAsyncRequest">
+                <xsd:sequence>
+                    <xsd:element name="filename" nillable="true" type="xsd:string"/>
+                    <xsd:element name="applicationViewGrant" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="storeDocumentAsyncResponse">
+                <xsd:sequence>
+                    <xsd:element name="documentGUID" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="storeDocumentAsyncRequest" type="tns:storeDocumentAsyncRequest"/>
+            <xsd:element name="storeDocumentAsyncResponse" type="tns:storeDocumentAsyncResponse"/>
+            <xsd:element name="storeDocumentRequest" type="tns:storeDocumentRequest"/>
+            <xsd:element name="storeDocumentResponse" type="tns:storeDocumentResponse"/>
+            <xsd:element name="getDocumentUploadStateRequest" type="tns:getDocumentUploadStateRequest"/>
+            <xsd:element name="getDocumentUploadStateResponse" type="tns:getDocumentUploadStateResponse"/>
+            <xsd:element name="getFileMimeRequest" type="tns:getFileMimeRequest"/>
+            <xsd:element name="getFileMimeResponse" type="tns:getFileMimeResponse"/>
+            <xsd:element name="getFileSizeRequest" type="tns:getFileSizeRequest"/>
+            <xsd:element name="getFileSizeResponse" type="tns:getFileSizeResponse"/>
+            <xsd:element name="getTicketedUrlRequest" type="tns:getTicketedUrlRequest"/>
+            <xsd:element name="getTicketedUrlResponse" type="tns:getTicketedUrlResponse"/>
+            <xsd:element name="getTicketRequest" type="tns:getTicketRequest"/>
+            <xsd:element name="getTicketResponse" type="tns:getTicketResponse"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_getDocumentUploadStateRequest">
+        <wsdl:part name="parameters" element="tns:getDocumentUploadStateRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_storeDocumentAsyncResponse">
+        <wsdl:part name="parameters" element="tns:storeDocumentAsyncResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_getTicketResponse">
+        <wsdl:part name="parameters" element="tns:getTicketResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_storeDocumentAsyncRequest">
+        <wsdl:part name="parameters" element="tns:storeDocumentAsyncRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_storeDocumentRequest">
+        <wsdl:part name="parameters" element="tns:storeDocumentRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_getDocumentUploadStateResponse">
+        <wsdl:part name="parameters" element="tns:getDocumentUploadStateResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_getTicketRequest">
+        <wsdl:part name="parameters" element="tns:getTicketRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_getFileSizeResponse">
+        <wsdl:part name="parameters" element="tns:getFileSizeResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_getFileMimeRequest">
+        <wsdl:part name="parameters" element="tns:getFileMimeRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_storeDocumentResponse">
+        <wsdl:part name="parameters" element="tns:storeDocumentResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_getFileMimeResponse">
+        <wsdl:part name="parameters" element="tns:getFileMimeResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_getFileSizeRequest">
+        <wsdl:part name="parameters" element="tns:getFileSizeRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_getTicketedUrlResponse">
+        <wsdl:part name="parameters" element="tns:getTicketedUrlResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="WebCATSDocumentStorageService_PortType_getTicketedUrlRequest">
+        <wsdl:part name="parameters" element="tns:getTicketedUrlRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="WebCATSDocumentStorageService_PortType">
+        <wsdl:operation name="storeDocumentAsync">
+            <wsdl:input message="tns:WebCATSDocumentStorageService_PortType_storeDocumentAsyncRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:WebCATSDocumentStorageService_PortType_storeDocumentAsyncResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="storeDocument">
+            <wsdl:input message="tns:WebCATSDocumentStorageService_PortType_storeDocumentRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:WebCATSDocumentStorageService_PortType_storeDocumentResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDocumentUploadState">
+            <wsdl:input message="tns:WebCATSDocumentStorageService_PortType_getDocumentUploadStateRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:WebCATSDocumentStorageService_PortType_getDocumentUploadStateResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getFileMime">
+            <wsdl:input message="tns:WebCATSDocumentStorageService_PortType_getFileMimeRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:WebCATSDocumentStorageService_PortType_getFileMimeResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getFileSize">
+            <wsdl:input message="tns:WebCATSDocumentStorageService_PortType_getFileSizeRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:WebCATSDocumentStorageService_PortType_getFileSizeResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getTicketedUrl">
+            <wsdl:input message="tns:WebCATSDocumentStorageService_PortType_getTicketedUrlRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:WebCATSDocumentStorageService_PortType_getTicketedUrlResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getTicket">
+            <wsdl:input message="tns:WebCATSDocumentStorageService_PortType_getTicketRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:WebCATSDocumentStorageService_PortType_getTicketResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="COA_Source_ws_provider_WebCATSDocumentStorageService_Binder" type="tns:WebCATSDocumentStorageService_PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="storeDocumentAsync">
+            <soap:operation soapAction="COA_Source_ws_provider_WebCATSDocumentStorageService_Binder_storeDocumentAsync" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="storeDocument">
+            <soap:operation soapAction="COA_Source_ws_provider_WebCATSDocumentStorageService_Binder_storeDocument" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDocumentUploadState">
+            <soap:operation soapAction="COA_Source_ws_provider_WebCATSDocumentStorageService_Binder_getDocumentUploadState" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getFileMime">
+            <soap:operation soapAction="COA_Source_ws_provider_WebCATSDocumentStorageService_Binder_getFileMime" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getFileSize">
+            <soap:operation soapAction="COA_Source_ws_provider_WebCATSDocumentStorageService_Binder_getFileSize" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getTicketedUrl">
+            <soap:operation soapAction="COA_Source_ws_provider_WebCATSDocumentStorageService_Binder_getTicketedUrl" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getTicket">
+            <soap:operation soapAction="COA_Source_ws_provider_WebCATSDocumentStorageService_Binder_getTicket" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WebCATSDocumentStorageService">
+        <wsdl:port name="COA_Source_ws_provider_WebCATSDocumentStorageService_Port" binding="tns:COA_Source_ws_provider_WebCATSDocumentStorageService_Binder">
+            <soap:address location="http://reeks.bcgov:5555/ws/COA.Source.ws.provider:WebCATSDocumentStorageService/COA_Source_ws_provider_WebCATSDocumentStorageService_Port"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

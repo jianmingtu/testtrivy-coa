@@ -1,7 +1,7 @@
 FROM eclipse-temurin:17-jre-alpine
 
-RUN apk upgrade libexpat  # Fix for CVE-2022-43680
+RUN apk upgrade libexpat
 
-COPY ./target/testtrivy-application.jar testtrivy-application.jar
+COPY ./jag-coa-application/target/jag-coa-application.jar jag-coa-application.jar
 
-ENTRYPOINT ["java", "-jar","/app/testtrivy-application.jar"]
+ENTRYPOINT ["java", "-Xmx512m", "-jar","/jag-coa-application.jar"]
