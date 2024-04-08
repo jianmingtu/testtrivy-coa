@@ -42,10 +42,10 @@ jobs:
         with:
           scan-type: image
           image-ref: docker.io/testtrivy/testtrivy:${{ github.sha }}
-          format: 'table'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
           exit-code: '1'
           ignore-unfixed: true
-          vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
 
       #Upload results to the Github security tab.
