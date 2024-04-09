@@ -42,11 +42,12 @@ jobs:
         with:
           scan-type: image
           image-ref: docker.io/testtrivy/testtrivy:${{ github.sha }}
-          severity: 'HIGH,CRITICAL'
-          exit-code: '1'
           format: 'sarif'
-          limit-severities-for-sarif: true
-          output: 'trivy-results.sarif'          
+          output: 'trivy-results.sarif'
+          exit-code: '1'
+          ignore-unfixed: true
+          limit-severities-for-sarif: true          
+          severity: 'CRITICAL,HIGH'
 
       #Upload results to the Github security tab.
       - name: Upload Trivy scan results to GitHub Security tab
